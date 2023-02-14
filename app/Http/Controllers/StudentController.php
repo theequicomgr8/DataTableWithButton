@@ -36,10 +36,13 @@ class StudentController extends Controller
         $temp_ary=[];
         if(!empty($students)){
             foreach($students as $student){
+                $id=$student->id;
+                $edit="<a href='edit/$id'>Edit</a>";
                 $result['id']=$student->id;
                 $result['name']=$student->name;
                 $result['email']=$student->email;
                 $result['mobile']=$student->mobile;
+                $result['action']=$edit;
                 $temp_ary[]=$result;
             }
         }

@@ -20,6 +20,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Mobile</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -64,7 +65,8 @@
                 {"data":"id"},
                 {"data":"name"},
                 {"data":"email"},
-                {"data":"mobile"}
+                {"data":"mobile"},
+                {"data":"action"}
             ]
         });
     });
