@@ -26,6 +26,12 @@ class StudentController extends Controller
         if(empty($request->input('search.value'))){
             $students=Student::offset($start)->limit($limit)->orderBy($order,$dir)->get();
         }
+        else{
+            $search=$request->input('search.value');
+            $students=Student::where('name','LIKE','%'.$search.'%')->orWhere('email','LIKE','%'.$search.'%')->orWhere('mobile','LIKE','%'.$search.'%')->offset($start)->limit($limit)->orderBy($order,$dir)->get();
+
+            $totalFilered=Student::where('name','LIKE','%'.$search.'%')->orWhere('email','LIKE','%'.$search.'%')->orWhere('mobile','LIKE','%'.$search.'%')->count();
+        }
 
         $temp_ary=[];
         if(!empty($students)){
