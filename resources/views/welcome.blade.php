@@ -36,15 +36,24 @@
 <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.print.min.js"></script>
 
+
+
 <script>
     $(document).ready(function () {
         $('#example').DataTable({
             processing: true,
             serverSide: true,
+            responsive: true,
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'All'],
+            ],
             dom: 'Bfrtip',
+            // 'pageLength'
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ],                                                                   
+                'pageLength','copy', 'csv', 'excel', 'pdf', 'print'
+            ], 
+                                                                              
             "ajax": {
                 "url" : '/show',
                 "type":'POST',
